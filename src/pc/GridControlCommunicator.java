@@ -29,7 +29,7 @@ public class GridControlCommunicator {
 		}
 		System.out.println(" conecting to " + name);
 		if (connector.connectTo(name, "", NXTCommFactory.BLUETOOTH)) {
-			control.setInfo("Connected to " + name);
+			control.setMessage("Connected to " + name);
 			System.out.println(" connected !");
 			dataIn = new DataInputStream(connector.getInputStream());
 			dataOut = new DataOutputStream(connector.getOutputStream());
@@ -79,8 +79,8 @@ public class GridControlCommunicator {
 					count++;
 				}
 				message = "Received " + x + " " + y + " code " + header;
-				control.setInfo(message);
-				control.incomingMessage(header, x, y);
+				control.setMessage(message);
+				//control.incomingMessage(header, x, y);
 			}
 		}
 	}
