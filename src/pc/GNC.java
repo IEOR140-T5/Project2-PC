@@ -3,7 +3,7 @@ package pc;
 /**
  * interface for generic GridNavigationController
  * 
- * @author glassey 
+ * @author glassey
  */
 public interface GNC {
 	public void setMessage(String s);

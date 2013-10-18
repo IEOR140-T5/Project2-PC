@@ -166,19 +166,19 @@ public class GridNavController extends JFrame implements GNC {
 	@Override
 	public void setMessage(String s) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void drawRobotPath(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void drawObstacle(int x, int y) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
