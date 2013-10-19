@@ -89,6 +89,7 @@ public class GridControlCommunicator {
 	 * call back reference; calls setMessage, dreawRobotPositin, drasObstacle;
 	 */
 	GNC control;
+	
 
 	/***
 	 * connects to NXT using bluetooth. Provides data input stream and data

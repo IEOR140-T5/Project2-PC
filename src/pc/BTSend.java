@@ -4,52 +4,51 @@ import lejos.pc.comm.*;
 import java.io.*;
 
 /**
- * This is a PC sample. It connects to the NXT, and then
- * sends an integer and waits for a reply, 100 times.
+ * This is a PC sample. It connects to the NXT, and then sends an integer and
+ * waits for a reply, 100 times.
  * 
- * Compile this program with javac (not nxjc), and run it 
- * with java.
+ * Compile this program with javac (not nxjc), and run it with java.
  * 
- * You need pccomm.jar and bluecove.jar on the CLASSPATH. 
- * On Linux, you will also need bluecove-gpl.jar on the CLASSPATH.
+ * You need pccomm.jar and bluecove.jar on the CLASSPATH. On Linux, you will
+ * also need bluecove-gpl.jar on the CLASSPATH.
  * 
  * Run the program by:
  * 
- *   java BTSend 
+ * java BTSend
  * 
- * Your NXT should be running a sample such as BTReceive or
- * SignalTest. Run the NXT program first until it is
- * waiting for a connection, and then run the PC program. 
+ * Your NXT should be running a sample such as BTReceive or SignalTest. Run the
+ * NXT program first until it is waiting for a connection, and then run the PC
+ * program.
  * 
  * @author Lawrie Griffiths
- *
+ * 
  */
-public class BTSend {	
+public class BTSend {
 	public static void main(String[] args) {
 		NXTConnector conn = new NXTConnector();
-//Replace   NR@   with the name of you NXT
-		boolean connected = conn.connectTo("btspp://NR2");
-		
+		// Replace NR@ with the name of you NXT
+		boolean connected = conn.connectTo("btspp://Terminator");
+
 		if (!connected) {
 			System.err.println("Failed to connect to any NXT");
 			System.exit(1);
 		}
-		
+
 		DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
 		DataInputStream dis = new DataInputStream(conn.getInputStream());
-				
-		for(int i=0;i<100;i++) {
+
+		for (int i = 0; i < 100; i++) {
 			try {
-				System.out.println("Sending " + (i*30000));
-				dos.writeInt((i*30000));
-				dos.flush();			
-				
+				System.out.println("Sending " + (i * 30000));
+				dos.writeInt((i * 30000));
+				dos.flush();
+
 			} catch (IOException ioe) {
 				System.out.println("IO Exception writing bytes:");
 				System.out.println(ioe.getMessage());
 				break;
 			}
-			
+
 			try {
 				System.out.println("Received " + dis.readInt());
 			} catch (IOException ioe) {
@@ -58,7 +57,7 @@ public class BTSend {
 				break;
 			}
 		}
-		
+
 		try {
 			dis.close();
 			dos.close();

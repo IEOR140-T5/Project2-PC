@@ -33,7 +33,7 @@ public class GridNavController extends JFrame implements GNC {
 			this);
 	private OffScreenGrid oSGrid = new OffScreenGrid();
 
-	// Add mouse listeners to OffScreenGrid0
+	// Add mouse listeners to OffScreenGrid
 
 	/**
 	 * Launch the application.
@@ -116,7 +116,6 @@ public class GridNavController extends JFrame implements GNC {
 
 		oSGrid.textX = this.xField;
 		oSGrid.textY = this.yField;
-
 	}
 
 	private class BtnConnectActionListener implements ActionListener {
@@ -164,21 +163,18 @@ public class GridNavController extends JFrame implements GNC {
 	}
 
 	@Override
-	public void setMessage(String s) {
-		// TODO Auto-generated method stub
-
+	public void setMessage(String message) {
+		statusField.setText(message);
 	}
 
 	@Override
 	public void drawRobotPath(int x, int y) {
-		// TODO Auto-generated method stub
-
+		incomingMessage(0, x, y);
 	}
 
 	@Override
 	public void drawObstacle(int x, int y) {
-		// TODO Auto-generated method stub
-
+		incomingMessage(1, x, y);
 	}
 
 }
