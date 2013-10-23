@@ -1,7 +1,11 @@
 package pc;
 
 import java.awt.*;
+
 import javax.swing.JTextField;
+
+import pc.MouseDemo.Drawing;
+
 import java.awt.event.*;
 
 /**
@@ -210,11 +214,23 @@ public class OffScreenGrid extends javax.swing.JPanel {
 
 		clearB = new javax.swing.JButton();
 
+		
+		// Click listener and Motion listener
 		addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				formMouseClicked(evt);
 			}
 		});
+		addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+			public void mouseMoved(java.awt.event.MouseEvent evt) {
+				PaneMouseMoved(evt);
+			}
+		});
+		/*addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				formMouseClicked(evt);
+			}
+		}); */
 
 		clearB.setText("Clear Map");
 		clearB.addActionListener(new java.awt.event.ActionListener() {
@@ -244,10 +260,44 @@ public class OffScreenGrid extends javax.swing.JPanel {
 	}// GEN-LAST:event_clearBActionPerformed
 
 	private void formMouseClicked(java.awt.event.MouseEvent evt)// GEN-FIRST:event_formMouseClicked
-	{
-
+	{// TODO add your handling code here:
+	System.out.println(" mouse click event " + evt.getX() + ","
+			+ evt.getY());
+	osGraphics.fillOval(x - 3, y - 3, 10, 10);
+	findNearestCoordinate(x-3, y-3);
+	repaint();
+			
 	}// GEN-LAST:event_formMouseClicked
 
+	private void PaneMouseMoved(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_DPanelMouseMoved
+		// TODO add your handling code here:
+		Point p = evt.getPoint();
+		x = (int) p.getX();
+		y = (int) p.getY();
+	}// GEN-LAST:event_DPanelMouseMoved
+	
+	private void findNearestCoordinate(int x, int y){
+		// grid:   (50, 115)     (300, 115)
+		//         (50, 463)     (300, 463)
+	}
+	
+	
+	
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	int x, y;
+	int nearestX, nearestY;
+	boolean line = true;
+	Color color = Color.white;
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton clearB;
 	// End of variables declaration//GEN-END:variables

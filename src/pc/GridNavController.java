@@ -2,20 +2,27 @@ package pc;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 // starter for GridNavController
 
@@ -27,14 +34,13 @@ public class GridNavController extends JFrame implements GNC {
 	private JTextField yField;
 	private JTextField statusField;
 	
+	
 	/**
 	 * provides communications services: sends and receives NXT data
 	 */
 	private GridControlCommunicator communicator = new GridControlCommunicator(
 			this);
 	private OffScreenGrid oSGrid = new OffScreenGrid();
-
-	// Add mouse listeners to OffScreenGrid
 
 	/**
 	 * Launch the application.
@@ -58,6 +64,7 @@ public class GridNavController extends JFrame implements GNC {
 	public GridNavController() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 629);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -116,13 +123,13 @@ public class GridNavController extends JFrame implements GNC {
 		contentPane.add(oSGrid, BorderLayout.CENTER);
 
 		oSGrid.textX = this.xField;
-		oSGrid.textY = this.yField;
+		oSGrid.textY = this.yField;		
 	}
 
 	private class BtnConnectActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			String name = nameField.getText();
-			communicator.connect(name);
+			//communicator.connect(name);
 			System.out.println("Connect to " + name);
 		}
 	}
@@ -146,7 +153,7 @@ public class GridNavController extends JFrame implements GNC {
 				setInfo("Problem with Y field");
 				return;
 			}
-			communicator.send(x, y);
+			//communicator.send(x, y);
 			System.out.println("send " + x + " " + y);
 			repaint();
 		}
@@ -182,5 +189,4 @@ public class GridNavController extends JFrame implements GNC {
 	public void drawObstacle(int x, int y) {
 		incomingMessage(1, x, y);
 	}
-
 }
