@@ -10,7 +10,7 @@ import lejos.pc.comm.*;
  */
 public class GridControlCommunicator {
 
-	public GridControlCommunicator(GNC control) {
+	public GridControlCommunicator(GridNavController control) {
 		this.control = control; // callback path
 		System.out.println("GridControlCom1 built");
 	}
@@ -42,12 +42,16 @@ public class GridControlCommunicator {
 	}
 
 	public void send(int x, int y) {
-		System.out.println(" Comm send " + x + " " + y);
 		try {
-			dataOut.writeInt(0); // replace with useful code
+			dataOut.writeInt(x);
+			dataOut.flush();
+			dataOut.writeInt(y);
+			dataOut.flush();
+			System.out.println("Write something bro");
 		} catch (IOException e) {
 			System.out.print(e);
 		}
+		System.out.println(" Comm send " + x + " " + y);
 	}
 
 	/**
@@ -72,15 +76,16 @@ public class GridControlCommunicator {
 			while (isRunning) {
 				try {
 					// read the message sent by the robot
-					dataIn.readInt(); // replace with something useful
-
+					header = dataIn.readInt();
+					x = dataIn.readInt();
+					y = dataIn.readInt();
 				} catch (IOException e) {
 					System.out.println("Read Exception in GridControlComm");
 					count++;
 				}
 				message = "Received " + x + " " + y + " code " + header;
 				control.setMessage(message);
-				//control.incomingMessage(header, x, y);
+				control.incomingMessage(header, x, y);
 			}
 		}
 	}
@@ -88,9 +93,8 @@ public class GridControlCommunicator {
 	/**
 	 * call back reference; calls setMessage, dreawRobotPositin, drasObstacle;
 	 */
-	GNC control;
+	GridNavController control;
 	
-
 	/***
 	 * connects to NXT using bluetooth. Provides data input stream and data
 	 * output stream

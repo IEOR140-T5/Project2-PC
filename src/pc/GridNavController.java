@@ -26,8 +26,9 @@ public class GridNavController extends JFrame implements GNC {
 	private JTextField xField;
 	private JTextField yField;
 	private JTextField statusField;
+	
 	/**
-	 * provides communications services: sends and recieves NXT data
+	 * provides communications services: sends and receives NXT data
 	 */
 	private GridControlCommunicator communicator = new GridControlCommunicator(
 			this);
@@ -52,7 +53,7 @@ public class GridNavController extends JFrame implements GNC {
 	}
 
 	/**
-	 * Create the frame.
+	 * Creates the frame
 	 */
 	public GridNavController() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -142,7 +143,7 @@ public class GridNavController extends JFrame implements GNC {
 				y = Integer.parseInt(yField.getText());
 				System.out.println(" get y " + y);
 			} catch (Exception e) {
-				setInfo("Problem  with Y field");
+				setInfo("Problem with Y field");
 				return;
 			}
 			communicator.send(x, y);
@@ -156,10 +157,15 @@ public class GridNavController extends JFrame implements GNC {
 	}
 
 	public void incomingMessage(int header, int x, int y) {
-		if (header == 0)
+		if (header == 0) {
 			oSGrid.drawRobotPath(x, y);
-		if (header == 1)
+			System.out.println("Drawing robot path to " + x + " " + y);
+		}
+		if (header == 1) {
 			oSGrid.drawObstacle(x, y);
+			System.out.println("Drawing obstacle path to " + x + " " + y);
+		}
+		System.out.println("HAHAHAHAHA YOU FOOL");
 	}
 
 	@Override

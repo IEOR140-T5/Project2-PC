@@ -11,4 +11,6 @@ public interface GNC {
 	public void drawRobotPath(int x, int y);
 
 	public void drawObstacle(int x, int y);
+	
+	public void incomingMessage(int header, int x, int y);
 }
