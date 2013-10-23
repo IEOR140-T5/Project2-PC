@@ -277,10 +277,29 @@ public class OffScreenGrid extends javax.swing.JPanel {
 	}// GEN-LAST:event_DPanelMouseMoved
 	
 	private void findNearestCoordinate(int x, int y){
-		// grid:   (50, 115)     (300, 115)
-		//         (50, 463)     (300, 463)
+		// grid:   (50, 85)     (300, 85)
+		//         (50, 435)     (300, 435)
+		// H x W = 350 x 250
+		// each square: 50 x 50
+		double value = 0;
+
+		int nearestX = (x - 50) / 50;
+		value = (x - 50) % 50;
+		System.out.println(value);
+		if (value > 24.0)
+			nearestX += 1;
+		int nearestY =  (435 - y) / 50;
+		value =  (435 - y) % 50;
+		System.out.println(value);
+		if (value > 24.0)
+			nearestY += 1;
+		updateNearestCoordinate(nearestX, nearestY);
 	}
 	
+	private void updateNearestCoordinate(int x, int y){
+		textX.setText(Integer.toString(x));
+		textY.setText(Integer.toString(y));
+	}
 	
 	
 	// Variables declaration - do not modify//GEN-BEGIN:variables
