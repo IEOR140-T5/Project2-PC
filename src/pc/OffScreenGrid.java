@@ -277,6 +277,11 @@ public class OffScreenGrid extends javax.swing.JPanel {
 		y = (int) p.getY();
 	}// GEN-LAST:event_DPanelMouseMoved
 	
+	/**
+	 * Finding nearest coordinates based on Mouse Click. The result will be sent back to XField and YField
+	 * @param x - x coordinate
+	 * @param y - y cooridnate
+	 */
 	private void findNearestCoordinate(int x, int y){
 		// grid:   (50, 85)     (300, 85)
 		//         (50, 435)     (300, 435)
@@ -308,11 +313,19 @@ public class OffScreenGrid extends javax.swing.JPanel {
 		}
 	}
 	
+	/**
+	 * When the mouse click is out of bound, update the Error to XField and YField
+	 */
 	private void updateErrorCoordinates(){
 		textX.setText("Error");
 		textY.setText("Error");
 	}
 	
+	/**
+	 * Update the X,Y coordinate to XField and YField
+	 * @param x
+	 * @param y
+	 */
 	private void updateNearestCoordinate(int x, int y){
 		textX.setText(Integer.toString(x));
 		textY.setText(Integer.toString(y));
@@ -325,15 +338,6 @@ public class OffScreenGrid extends javax.swing.JPanel {
 	boolean line = true;
 	Color color = Color.white;
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton clearB;
 	// End of variables declaration//GEN-END:variables
