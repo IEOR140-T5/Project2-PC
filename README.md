@@ -6,9 +6,13 @@ Project2 Milestone 4
 In actual warehouses and factories, the robots are not completely autonomous. They get instructions about where to go and what to do there form a computer that has humans supervising it. In this Milestone, we are going to use Bluetooth to communicate between the NXT Brick and PC.  
 
 1.1. Name of the assignment, due date: 
-Grid Navigation – Project 2 Milestone 5
+
+
+Grid Navigation – Project 2 Milestone 5 - October 24, 2013
 
 1.2. Team 5 Members:
+
+
 Phuoc Nguyen, Khoa Tran: Coders
 Corey Short, Trevor Davenport: Reporters 
 
