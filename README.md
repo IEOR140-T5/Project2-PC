@@ -1,11 +1,11 @@
-Project2 Milestone 4
+Project 2 Milestone 5
 ===========
 1.  Introduction:
 
 
 In actual warehouses and factories, Robots similiar to ours are completely autonomous. They receive instructions about where to go and what to do from a computer with a human supervising the actions. In this Milestone, we are going to use Bluetooth to communicate between the NXT Brick and PC.  
 
-1.1. Name of the assignment, due date: 
+1.1. Name of the assignment, due date:
 
 
 Grid Navigation – Project 2 Milestone 5 - October 24, 2013
@@ -21,15 +21,15 @@ Corey Short, Trevor Davenport: Reporters
 
 2.    Which of the performance specifications you robot meets (basic and extra credit): Our robot meets all of the necessary performance specifications. 
 
-3.    Hardware design.  Describe briefly the design.   Our hardware, similiar to an older Milestone of project 2, uses downward facing sensors to track locations on a coordinate plane. We modified our Rover since the last milestone and made some necessary changes in order to complete this checkpoint.
+3.    Hardware design.  Describe briefly the design.   Our hardware, similar to an older Milestone of project 2, uses downward facing light sensors to track locations on a coordinate plane. We modified our Rover since the last milestone and made some necessary changes in order to complete this checkpoint. We removed the unnecessary bumper its respective sensors.
 
-4.    Experimental work  (if any):  Much of our experimental work came from testing our code thoroughly. Moreover, setting up Bluetooth was a bit of a hender for our team, but Corey and Khoa managed to make it possible on their laptops.
+4.    Experimental work  (if any):  Much of our experimental work came from testing our code thoroughly. Moreover, setting up Bluetooth was a bit of a hinder for our team, but Corey and Khoa managed to make it possible on their laptops.
 
-4.1. Experiment description and purpose -- The purpose of this milestone is to demonstrate the abilities of our rover to communicate over Bluetooth.
+4.1. Experiment description and purpose -- The purpose of this milestone is to demonstrate the abilities of our rover to connect and to receive instruction coordinates over Bluetooth while scanning for obstacles and determining the shortest path to a given destination coordinate.
 
-4.2. Calculations and analysis -- Most of our calculations came in using a spin-off of Dijkstras Algorithm to determine the nearest coodinates and shortest paths. 
+4.2. Calculations and analysis -- Most of our calculations came in using a spin-off of Dijkstras Algorithm to determine the nearest coordinates and shortest paths. 
 
-4.3. How results were used in our code -- After mapping out how to solve the problems on paper, Khoa and Phuoc chose to implement the code appropriately. 
+4.3. How results were used in our code -- After mapping out how to solve the problems on paper, Khoa and Phuoc chose to implement the code appropriately.
 
 5.    Software design – top level description of how your code works:  what each class does, how classes collaborate, how data flows between classes. This information should be in class header comments.  (see 7.2)
 
