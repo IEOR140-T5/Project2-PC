@@ -16,7 +16,7 @@ Grid Navigation – Project 2 Milestone 5 - October 24, 2013
 Phuoc Nguyen, Khoa Tran: Coders
 Corey Short, Trevor Davenport: Reporters 
 
-1.3. Approximate number of person hours spent on the project: approximately 8 hours.
+1.3. Approximate number of person hours spent on the project :approximately 8 hours.
 1.4. Location of your project code so I can read the JavaDocs: Team 5/Project 2 – Milestone 5/
 
 2.    Which of the performance specifications you robot meets (basic and extra credit) 
