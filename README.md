@@ -1,6 +1,8 @@
 Project2 Milestone 4
 ===========
-1.  Introduction: 
+1.  Introduction:
+
+
 In actual warehouses and factories, the robots are not completely autonomous. They get instructions about where to go and what to do there form a computer that has humans supervising it. In this Milestone, we are going to use Bluetooth to communicate between the NXT Brick and PC.  
 
 1.1. Name of the assignment, due date: 
