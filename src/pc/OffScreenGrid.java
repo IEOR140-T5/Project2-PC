@@ -14,6 +14,7 @@ import java.awt.event.*;
  * Mouse listener used    
  * updated 10/13/2011
  * @author Roger Glassey
+ * @Edit Phuoc Nguyen, Khoa Tran
  */
 public class OffScreenGrid extends javax.swing.JPanel {
 
@@ -282,18 +283,34 @@ public class OffScreenGrid extends javax.swing.JPanel {
 		// H x W = 350 x 250
 		// each square: 50 x 50
 		double value = 0;
+		
+		// Update this everytime we test
+		int thresholdX = 50;
+		int thresholdY = 465;
 
-		int nearestX = (x - 50) / 50;
-		value = (x - 50) % 50;
+		int nearestX = 0, nearestY = 0;
+		
+		nearestX = (x - thresholdX) / 50;
+		value = (x - thresholdX) % 50;
 		System.out.println(value);
 		if (value > 24.0)
 			nearestX += 1;
-		int nearestY =  (435 - y) / 50;
-		value =  (435 - y) % 50;
+		nearestY =  (thresholdY - y) / 50;
+		value =  (435 - thresholdY) % 50;
 		System.out.println(value);
 		if (value > 24.0)
 			nearestY += 1;
+		if ((nearestX < 6) && (nearestY < 8) && (nearestX > -1) && (nearestX > -1)){
 		updateNearestCoordinate(nearestX, nearestY);
+		} else {
+			System.out.println("Out of Bound!");
+			updateErrorCoordinates();
+		}
+	}
+	
+	private void updateErrorCoordinates(){
+		textX.setText("Error");
+		textY.setText("Error");
 	}
 	
 	private void updateNearestCoordinate(int x, int y){
