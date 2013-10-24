@@ -2,11 +2,14 @@ Project2 Milestone 4
 ===========
 1.  Introduction
 In actual warehouses and factories, the robots are not completely autonomous. They get instructions about where to go and what to do there form a computer that has humans supervising it. In this Milestone, we are going to use Bluetooth to communicate between the NXT Brick and PC.  
+
 1.1. Name of the assignment, due date
 Grid Navigation – Project 2 Milestone 5
+
 1.2. Team 5 Members:
 Phuoc Nguyen, Khoa Tran: Coders
 Corey Short, Trevor Davenport: Reporters 
+
 1.3. Approximate number of person hours spent on the project: approximately 8 hours.
 1.4. Location of your project code so I can read the JavaDocs: Team 5/Project 2 – Milestone 5/
 
