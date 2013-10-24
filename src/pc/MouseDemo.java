@@ -1,41 +1,67 @@
 package pc;
 
-/**
- * MouseDemo.java
- *
- * Created on July 15, 2008, 7:46 PM
- */
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 /**
- * 
+ * MouseDemo.java
+ * Created on July 15, 2008, 7:46 PM 
  * @author Roger Glassey
  */
-public class MouseDemo extends javax.swing.JFrame {
 
+public class MouseDemo extends JFrame implements ActionListener {
+
+	// Variables declaration 
+	private JPanel DPanel;
+	private JLabel X, Y;
+	private JTextField xField, yField;
+	private Drawing mousePanel;
+	int x1, y1, x2, y2;
+	boolean isLine = true;
+	Color color = Color.WHITE;
+	
+	public static void main(String args[]) {
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MouseDemo frame = new MouseDemo();
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setVisible(true);
+				}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	
 	/** Creates new form MouseDemo */
 	public MouseDemo() {
 		initComponents();
-		drawing = new Drawing();
-		drawing.setSize(500, 400);
-		DPanel.add(drawing);
+		mousePanel = new Drawing();
+		mousePanel.setSize(500, 400);
+		DPanel.add(mousePanel);
 	}
 
 	class Drawing extends JPanel {
 		public void paint(Graphics g) {
-			System.out.println(" line " + line);
-			if (line)
-				g.setColor(Color.red);
+			System.out.println("valid line: " + isLine);
+			if (isLine)
+				g.setColor(Color.RED);
 			else
-				g.setColor(Color.green);
-			g.fillOval(x - 3, y - 3, 6, 6);
-			if (line) {
-				g.setColor(Color.black);
-				g.drawLine(x0, y0, x, y);
-				System.out.println("drawing " + x0 + "," + y0 + " _ " + x + ","
-						+ y);
+				g.setColor(Color.GREEN);
+			g.fillOval(x2 - 3, y2 - 3, 6, 6);
+			if (isLine) {
+				g.setColor(Color.BLACK);
+				g.drawLine(x1, y1, x2, y2);
+				System.out.println("drawing coordinates: " + "(x1,y1) (" + x1 +
+					"," + y1 + ") to " + "(x2,y2) (" + x2 + "," + y2 + ")");
 			}
 		}
 	}
@@ -47,180 +73,161 @@ public class MouseDemo extends javax.swing.JFrame {
 	 */
 	private void initComponents() {
 
-		DPanel = new javax.swing.JPanel();
-		jLabel1 = new javax.swing.JLabel();
-		xField = new javax.swing.JTextField();
-		jLabel2 = new javax.swing.JLabel();
-		yField = new javax.swing.JTextField();
-
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		DPanel = new JPanel();
+		DPanel.setLayout(null);
+		//DPanel.addMouseListener(new MouseAdapter());
+		
+		//GroupLayout DPanelLayout = new GroupLayout(DPanel);
+		//DPanel.setLayout(DPanelLayout); // make NULL 
+		
+		X = new JLabel("X");
+		X.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		xField = new JTextField(5);
+		xField.addActionListener(this);
+		
+		Y = new JLabel("Y");
+		Y.setHorizontalAlignment(SwingConstants.RIGHT);
+		
+		yField = new JTextField(5);
+		yField.addActionListener(this);
+		
 		setTitle("Mouse Demo");
-
-		DPanel.setBorder(javax.swing.BorderFactory
-				.createLineBorder(new java.awt.Color(0, 0, 0)));
-		DPanel.setOpaque(false);
-		DPanel.setPreferredSize(new java.awt.Dimension(300, 200));
-		DPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				DPanelMouseClicked(evt);
+		
+		
+		DPanel.setPreferredSize(new Dimension(300, 200));
+		DPanel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				DPanelMouseClicked(e);
 			}
 		});
-		DPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-			public void mouseMoved(java.awt.event.MouseEvent evt) {
-				DPanelMouseMoved(evt);
+		
+		DPanel.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseMoved(MouseEvent e) {
+				DPanelMouseMoved(e);
 			}
 		});
 
-		javax.swing.GroupLayout DPanelLayout = new javax.swing.GroupLayout(
-				DPanel);
-		DPanel.setLayout(DPanelLayout);
-		DPanelLayout.setHorizontalGroup(DPanelLayout.createParallelGroup(
+		
+		
+		/**DPanelLayout.setHorizontalGroup(DPanelLayout.createParallelGroup(
 				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 497,
 				Short.MAX_VALUE));
 		DPanelLayout.setVerticalGroup(DPanelLayout.createParallelGroup(
 				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 317,
-				Short.MAX_VALUE));
-
-		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		jLabel1.setText("X");
-
-		xField.setColumns(5);
-		xField.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				xFieldActionPerformed(evt);
+				Short.MAX_VALUE));*/
+	
+		/**	xField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				xFieldActionPerformed(e);
 			}
-		});
-
-		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		jLabel2.setText("Y");
-
-		yField.setColumns(5);
-		yField.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				yFieldActionPerformed(evt);
+		});*/
+		
+		/**yField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				yFieldActionPerformed(e);
 			}
-		});
+		});*/
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		GroupLayout layout = new GroupLayout(getContentPane());
+		
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(jLabel1)
+								.addComponent(X)
 								.addPreferredGap(
 										javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 								.addComponent(xField,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+										GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
 								.addGap(37, 37, 37)
-								.addComponent(jLabel2)
+								.addComponent(Y)
 								.addGap(18, 18, 18)
 								.addComponent(yField,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
+										GroupLayout.PREFERRED_SIZE,
 										59,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+										GroupLayout.PREFERRED_SIZE)
 								.addGap(263, 263, 263))
 				.addGroup(
-						javax.swing.GroupLayout.Alignment.TRAILING,
+						GroupLayout.Alignment.TRAILING,
 						layout.createSequentialGroup()
 								.addContainerGap(26, Short.MAX_VALUE)
 								.addComponent(DPanel,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
+										GroupLayout.PREFERRED_SIZE,
 										499,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+										GroupLayout.PREFERRED_SIZE)
 								.addContainerGap()));
 
-		layout.linkSize(javax.swing.SwingConstants.HORIZONTAL,
-				new java.awt.Component[] { jLabel1, jLabel2, xField });
+		layout.linkSize(SwingConstants.HORIZONTAL,
+										new Component[] { X, Y, xField });
 
 		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addContainerGap()
 								.addGroup(
 										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
-												.addComponent(jLabel1)
+												GroupLayout.Alignment.BASELINE)
+												.addComponent(X)
 												.addComponent(
 														xField,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel2)
+														GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE,
+														GroupLayout.PREFERRED_SIZE)
+												.addComponent(Y)
 												.addComponent(
 														yField,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE))
+														GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE,
+														GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(
 										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 										28, Short.MAX_VALUE)
 								.addComponent(DPanel,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
+										GroupLayout.PREFERRED_SIZE,
 										319,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+										GroupLayout.PREFERRED_SIZE)
 								.addGap(26, 26, 26)));
 
 		pack();
-	}// </editor-fold>//GEN-END:initComponents
-
-	private void yFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_yFieldActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_yFieldActionPerformed
-
-	private void xFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_xFieldActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_xFieldActionPerformed
-
-	private void DPanelMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_DPanelMouseClicked
-		// TODO add your handling code here:
-		System.out.println(" mouse click event " + evt.getX() + ","
-				+ evt.getY());
-		if (line) {
-			x0 = x;
-			y0 = y;
-		}
-		line = !line;
-		drawing.repaint();
-
-	}// GEN-LAST:event_DPanelMouseClicked
-
-	private void DPanelMouseMoved(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_DPanelMouseMoved
-		// TODO add your handling code here:
-		Point p = evt.getPoint();
-		x = (int) p.getX();
-		y = (int) p.getY();
-		xField.setText("" + x);
-		yField.setText("" + y);
-	}// GEN-LAST:event_DPanelMouseMoved
-
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new MouseDemo().setVisible(true);
-			}
-		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JPanel DPanel;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JTextField xField;
-	private javax.swing.JTextField yField;
-	// End of variables declaration//GEN-END:variables
-	private Drawing drawing;
-	int x, y, x0, y0;
-	boolean line = true;
-	Color color = Color.white;
+	private void yFieldActionPerformed(ActionEvent e) {
+	}
+
+	private void xFieldActionPerformed(ActionEvent e) {
+	}
+
+	private void DPanelMouseClicked(MouseEvent e) {
+		System.out.println("mouse coordinates clicked: (" +
+											e.getX() + "," + e.getY() + ")");
+		if (isLine) {
+			x1 = x2;
+			y1 = y2;
+		}
+		isLine = !isLine;
+		mousePanel.repaint();
+
+	}
+
+	private void DPanelMouseMoved(MouseEvent e) {
+		Point p = e.getPoint();
+		x2 = (int) p.getX();
+		y2 = (int) p.getY();
+		xField.setText("" + x2);
+		yField.setText("" + y2);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
