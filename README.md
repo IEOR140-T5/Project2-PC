@@ -1,9 +1,12 @@
-Project2 Milestone 4
+Project 2 Milestone 5
 ===========
 1.  Introduction:
 
 
-In actual warehouses and factories, Robots similiar to ours are nearly autonomous. They receive instructions about where to go and what to do from a computer with a human supervising the actions. In this Milestone, we are going to use Bluetooth to communicate between the NXT Brick and PC.  
+In actual warehouses and factories, Robots similiar to ours are nearly autonomous.
+They receive instructions about where to go and what to do from a computer with a 
+human supervising the actions. In this Milestone, we are going to use Bluetooth to 
+communicate between the NXT Brick and PC.  
 
 1.1. Name of the assignment, due date: 
 
@@ -16,23 +19,47 @@ Grid Navigation – Project 2 Milestone 5 - October 24, 2013
 Phuoc Nguyen, Khoa Tran: Coders
 Corey Short, Trevor Davenport: Reporters 
 
-1.3. Approximate number of person hours spent on the project : approximately 8 hours.
+1.3. Approximate number of person hours spent on the project : 
 
-1.4. Location of your project code so I can read the JavaDocs: Team 5/Project 2 – Milestone 5/
+        approximately 8 hours.
 
-2.    Which of the performance specifications you robot meets (basic and extra credit): Our robot meets all of the necessary performance specifications. 
+1.4. Location of your project code so I can read the JavaDocs:
 
-3.    Hardware design.  Describe briefly the design.   Our hardware, similiar to an older Milestone of project 2, uses downward facing sensors to track locations on a coordinate plane. We modified our Rover since the last milestone and made some necessary changes in order to complete this checkpoint.
+        Team 5/Project 2 – Milestone 5/
 
-4.    Experimental work  (if any):  Much of our experimental work came from testing our code thoroughly. Moreover, setting up Bluetooth was a bit of a hender for our team, but Corey and Khoa managed to make it possible on their laptops.
+2.   Which of the performance specifications you robot meets (basic and extra credit): 
+    
+        Our robot meets all of the necessary performance specifications. 
 
-4.1. Experiment description and purpose -- The purpose of this milestone is to demonstrate the abilities of our rover to communicate over Bluetooth.
+3.   Hardware design.  Describe briefly the design.
 
-4.2. Calculations and analysis -- Most of our calculations came in using a spin-off of Dijkstras Algorithm to determine the nearest coodinates and shortest paths.
+        Our hardware, similiar to an older Milestone of project 2, uses downward facing light sensors
+        to track locations on a coordinate plane. We modified our robot since the last milestone and made
+        some necessary changes in order to complete this checkpoint. We removed the unnecessary bumper and 
+        respective sensors.
 
-4.3. How results were used in our code -- After mapping out how to solve the problems on paper, Khoa and Phuoc chose to implement the code appropriately. 
+4.   Experimental work  (if any):
 
-5.    Software design – top level description of how your code works:  what each class does, how classes collaborate, how data flows between classes. This information should be in class header comments.  (see 7.2)
+        Much of our experimental work came from testing our code thoroughly. Moreover, setting up Bluetooth
+        was a bit of a hinder for our team, but Corey and Khoa managed to make it possible on their laptops.
+        We also had to determine the distance of objects for our ultrasonicsensor.
+
+4.1. Experiment description and purpose:
+
+        The purpose of this milestone is to demonstrate the abilities of our rover to communicate over Bluetooth.
+
+4.2. Calculations and analysis:
+        
+        Most of our calculations came in using a spin-off of Dijkstras Algorithm to determine the
+        nearest coodinates and shortest paths.
+
+4.3. How results were used in our code:
+
+        After mapping out how to solve the problems on paper, Khoa and Phuoc chose to implement the
+        code appropriately. 
+
+5.    Software design – top level description of how your code works: what each class does, how classes
+      collaborate, how data flows between classes. This information should be in class header comments.
 
         1.    Manage user interaction with screen, mouse and keyboard
         2.    Establish Bluetooth connection  to the robot.
@@ -43,7 +70,8 @@ Corey Short, Trevor Davenport: Reporters
       
       Classes: 
       
-        1. GNC -- Is an interface that with four methods (setMessage, drawRobotPath, drawObstacle, and incomingMessage)
+        1. GNC -- Is an interface that with four methods (setMessage, drawRobotPath, 
+                drawObstacle, and incomingMessage)
         
         2. BTSend -- A class that is used to send the Bluetooth signal.
         
@@ -67,9 +95,15 @@ Corey Short, Trevor Davenport: Reporters
 5.3. Link to the Documentation generated from JavaDoc comments within the code as generated by Eclipse 
 
 6.    The most interesting/challenging/difficult parts of the project
-The most interesting/challenging part of this project is to learn how to use bluetooth in order to communicate between NXJ Brick and the PC. It took us an hour in order to figure out that we have to flush() the datastream to update/get the value. Otherwise, we just get the NULL value. Moreover, most of the group's coders are using UBUNTU so it took us another hour in order to part in the NXT Bluetooth library and the Bluecove library to make it work.
+
+        The most interesting/challenging part of this project is to learn how to use bluetooth in order to
+        communicate between NXJ Brick and the PC. It took us an hour in order to figure out that we have to 
+        flush() the datastream to update/get the value. Otherwise, we just get the NULL value. Moreover, 
+        most of the group's coders are using UBUNTU so it took us another hour in order to part in the 
+        NXT Bluetooth library and the Bluecove library to make it work.
 
 7.    Link to the source code:
-Steam Folder / TEAM / Team5 / Project 2 – Milestone 5/
-PC: https://github.com/IEOR140-T5/Project2-PC/
-NXT: https://github.com/IEOR140-T5/Project2-NXT/ 
+
+        Steam Folder / TEAM / Team5 / Project 2 – Milestone 5/
+        PC: https://github.com/IEOR140-T5/Project2-PC/
+        NXT: https://github.com/IEOR140-T5/Project2-NXT/ 
