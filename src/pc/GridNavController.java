@@ -38,8 +38,7 @@ public class GridNavController extends JFrame implements GNC {
 	/**
 	 * provides communications services: sends and receives NXT data
 	 */
-	private GridControlCommunicator communicator = new GridControlCommunicator(
-			this);
+	private GridControlCommunicator communicator = new GridControlCommunicator(this);
 	private OffScreenGrid oSGrid = new OffScreenGrid();
 
 	/**
